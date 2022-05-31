@@ -1,4 +1,5 @@
 import Head from "next/head";
+import Image from 'next/Image'
 import { BigNumber, Contract, providers, utils } from "ethers";
 import React, { useEffect, useRef, useState } from "react";
 import Web3Modal from "web3modal";
@@ -343,7 +344,7 @@ export default function Home() {
           )}
         </div>
         <div>
-          <img className={styles.image} src="./0.svg" />
+          <img className={styles.image} src="./cryptodevs/0.svg" />
         </div>
       </div>
 
