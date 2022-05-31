@@ -33,7 +33,7 @@ export default function Home() {
   const web3ModalRef = useRef();
 
 
-  
+
   /**
    * getTokensToBeClaimed: checks the balance of tokens that can be claimed by the user
    */
@@ -346,7 +346,7 @@ export default function Home() {
           )}
         </div>
         <div>
-          <img className={styles.image} src="./cryptodevs/0.svg"/>
+          <Image className={styles.image} src="./cryptodevs/0.svg" alt="crypto-devs"/>
         </div>
       </div>
       <footer className={styles.footer}>
