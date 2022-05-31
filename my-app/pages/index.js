@@ -32,6 +32,8 @@ export default function Home() {
   // Create a reference to the Web3 Modal (used for connecting to Metamask) which persists as long as the page is open
   const web3ModalRef = useRef();
 
+
+  
   /**
    * getTokensToBeClaimed: checks the balance of tokens that can be claimed by the user
    */
@@ -344,10 +346,9 @@ export default function Home() {
           )}
         </div>
         <div>
-          <img className={styles.image} src="./cryptodevs/0.svg" />
+          <img className={styles.image} src="./cryptodevs/0.svg"/>
         </div>
       </div>
-
       <footer className={styles.footer}>
         Made with &#10084; by Crypto Devs
       </footer>
