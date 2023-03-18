@@ -1,5 +1,5 @@
 import Head from "next/head";
-import Image from 'next/Image'
+import Image from "next/Image";
 import { BigNumber, Contract, providers, utils } from "ethers";
 import React, { useEffect, useRef, useState } from "react";
 import Web3Modal from "web3modal";
@@ -22,17 +22,14 @@ export default function Home() {
   // based on the Crypto Dev NFT's held by the user for which they havent claimed the tokens
   const [tokensToBeClaimed, setTokensToBeClaimed] = useState(zero);
   // balanceOfCryptoDevTokens keeps track of number of Crypto Dev tokens owned by an address
-  const [balanceOfCryptoDevTokens, setBalanceOfCryptoDevTokens] = useState(
-    zero
-  );
+  const [balanceOfCryptoDevTokens, setBalanceOfCryptoDevTokens] =
+    useState(zero);
   // amount of the tokens that the user wants to mint
   const [tokenAmount, setTokenAmount] = useState(zero);
   // tokensMinted is the total number of tokens that have been minted till now out of 10000(max total supply)
   const [tokensMinted, setTokensMinted] = useState(zero);
   // Create a reference to the Web3 Modal (used for connecting to Metamask) which persists as long as the page is open
   const web3ModalRef = useRef();
-
-
 
   /**
    * getTokensToBeClaimed: checks the balance of tokens that can be claimed by the user
@@ -216,11 +213,11 @@ export default function Home() {
     const provider = await web3ModalRef.current.connect();
     const web3Provider = new providers.Web3Provider(provider);
 
-    // If user is not connected to the Rinkeby network, let them know and throw an error
+    // If user is not connected to the Polygon Mumbai network, let them know and throw an error
     const { chainId } = await web3Provider.getNetwork();
-    if (chainId !== 4) {
-      window.alert("Change the network to Rinkeby");
-      throw new Error("Change network to Rinkeby");
+    if (chainId !== 80001) {
+      window.alert("Change the network to Polygon Mumbai");
+      throw new Error("Change network to Polygon Mumbai");
     }
 
     if (needSigner) {
@@ -253,7 +250,7 @@ export default function Home() {
       // Assign the Web3Modal class to the reference object by setting it's `current` value
       // The `current` value is persisted throughout as long as this page is open
       web3ModalRef.current = new Web3Modal({
-        network: "rinkeby",
+        network: "mumbai",
         providerOptions: {},
         disableInjectedProvider: false,
       });
@@ -330,12 +327,13 @@ export default function Home() {
             <div>
               <div className={styles.description}>
                 {/* Format Ether helps us in converting a BigNumber to string */}
-                You have minted {utils.formatEther(balanceOfCryptoDevTokens)} Crypto
-                Dev Tokens
+                You have minted {utils.formatEther(balanceOfCryptoDevTokens)}{" "}
+                Crypto Dev Tokens
               </div>
               <div className={styles.description}>
                 {/* Format Ether helps us in converting a BigNumber to string */}
-                Overall {utils.formatEther(tokensMinted)}/10000 have been minted!!!
+                Overall {utils.formatEther(tokensMinted)}/10000 have been
+                minted!!!
               </div>
               {renderButton()}
             </div>
@@ -346,7 +344,7 @@ export default function Home() {
           )}
         </div>
         <div>
-          <Image className={styles.image} src="./cryptodevs/0.svg" alt="crypto-devs"/>
+          {/* <Image className={styles.image} src="./cryptodevs/0.svg" alt="crypto-devs"/> */}
         </div>
       </div>
       <footer className={styles.footer}>

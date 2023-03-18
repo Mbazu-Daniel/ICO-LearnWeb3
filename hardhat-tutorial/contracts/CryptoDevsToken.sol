@@ -5,7 +5,7 @@
   import "@openzeppelin/contracts/access/Ownable.sol";
   import "./ICryptoDevs.sol";
 
-  contract CryptoDevToken is ERC20, Ownable {
+  contract CryptoDevsToken is ERC20, Ownable {
       // Price of one Crypto Dev token
       uint256 public constant tokenPrice = 0.001 ether;
       // Each NFT would give the user 10 tokens
